@@ -1,0 +1,40 @@
+{
+  "name": "scrollissimo",
+  "version": "0.7.0",
+  "description": "Javascript plugin for smooth scroll-controlled animations",
+  "main": "./dist/scrollissimo.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Promo/scrollissimo.git"
+  },
+  "keywords": [
+    "scrollissimo",
+    "scrollorama",
+    "scrollmagic",
+    "animations"
+  ],
+  "author": "frux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Promo/scrollissimo/issues"
+  },
+  "homepage": "https://github.com/Promo/scrollissimo",
+  "scripts": {
+    "mocha": "mocha",
+    "lint": "eslint ./scrollissimo.js --ext .js",
+    "test": "npm run lint && npm run mocha"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-umd": "^6.4.3",
+    "babel-preset-es2015": "^6.5.0",
+    "eslint": "^3.13.1",
+    "eslint-config-xo": "^0.17.0",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^6.1.2",
+    "gulp-insert": "^0.5.0",
+    "gulp-rename": "^1.2.2",
+    "mocha": "^2.2.5",
+    "qunitjs": "^1.18.0",
+    "should": "^6.0.3"
+  }
+}
