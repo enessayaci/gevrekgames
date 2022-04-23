@@ -56,7 +56,13 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
-
+.no-scroll{
+  overflow: hidden;
+}
+body{
+  padding-bottom: 100px;
+  scroll-behavior: auto;
+}
 .rek-100vw{
   width: 100vw;
 }
@@ -407,9 +413,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   @media screen and (min-width: 992px) {
     left: 0;
     opacity: 0;
-    top: 0%;
+    top: 4%;
   }
-  top: 10%;
+  top: 3%;
   &::after{
     content: "";
     position: absolute;
@@ -644,4 +650,23 @@ rect {
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 10px;
+}
+
+.wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
 }

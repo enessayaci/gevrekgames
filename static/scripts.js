@@ -7,10 +7,13 @@ import {slick} from './../node_modules/slick-carousel/slick/slick.min.js';
 import scrollissimo from 'scrollissimo';
 import smoothscroll from 'smoothscroll-polyfill';
 
+$('html').animate({scrollTop:0}, 1);
+$('body').animate({scrollTop:0}, 1);
 smoothscroll.polyfill();
 AOS.init();
 const screenHeight = window.innerHeight;
 const sections = document.querySelectorAll('section');
+const body = document.querySelector('body');
 // const car = document.querySelector('.rek-car');
 //242 ve 259 uda açmayı unutma
 // for(let i=0; i<sections.length; i++){
@@ -26,28 +29,33 @@ let currentSection = {index:0};
 sidebarPoint.style.top = rekStations[0].getBoundingClientRect().top + rekStations[0].getBoundingClientRect().height/2 + 'px';
 let targetProxy = new Proxy(currentSection, {
   set: function (target, key, value) {
+      autoScroll = false;
+      body.classList.add('no-scroll');
+      let autoScrollInterval = setInterval(function(){
+        if(window.scrollY == value * screenHeight ){
+            body.classList.remove('no-scroll');
+            autoScroll = true;
+          clearInterval(autoScrollInterval);
+          }
+      },150);
       window.scrollTo({
-        top: value * screenHeight -100 ,
+        top: value * screenHeight ,
         left: 0,
         behavior: 'smooth'
       });
-      cachedScrollAmount = value * screenHeight -100 ;
+      console.log("value:",value);
       sidebarPoint.style.top = rekStations[value].getBoundingClientRect().top + rekStations[value].getBoundingClientRect().height/2 + 'px';
       target[key] = value;
       return true;
   }
 });
-
 $(document).ready(function(){
   let sectionIcons = document.querySelectorAll('.rek-section-icon');
   sectionIcons.forEach(function(el,index){
     let top = ((index+1) * screenHeight) - (screenHeight/2);
     el.style.top = top + 'px';
   });
-  window.scrollTo({
-    top: 0,
-    left: 0,
-  });
+  
 
   // let radius = 8;
   // TweenMax.staggerFromTo('.blob', 14 ,{
@@ -169,7 +177,7 @@ function scrollanim(){
 function textAnim(){
   let myTextList
   if(window.innerWidth < 567){
-    myTextList = ['HOŞGELDİNİZ<br>\ ','GEVREK<br>GAMES'];
+    myTextList = ['HOŞGELDİNİZ<br><span class="wave">👋</span>','GEVREK<br>GAMES'];
   }else{
     myTextList = ['HOŞGELDİNİZ','GEVREK\ GAMES'];
   }
@@ -194,10 +202,6 @@ function getCoords(elem) { // crossbrowser version
 
     return { top: Math.round(top), left: Math.round(left) };
 }
-
-$("#rekFormContact").submit(function(event){
-  event.preventDefault();
-});
 
 $('.slider-for').slick({
   swipe:false,
@@ -264,6 +268,7 @@ window.onresize = function(){
 }
 //let timer = null;
 setTimeout(function(){
+  body.classList.remove('no-scroll');
   window.addEventListener("scroll",function(){
     
     // car.classList.add('moving');
@@ -275,11 +280,12 @@ setTimeout(function(){
     //   car.classList.remove('moving');
     // }, 150);
     scrollAmount = window.scrollY;
+    
     if(autoScroll){
         if(scrollAmount < cachedScrollAmount){
-          if(scrollAmount < (currentSection.index * screenHeight) - 100){
-            let temp = currentSection.index-1;
-            targetProxy.index = temp < 0 ? 0: targetProxy.index-1;
+          if(scrollAmount < (parseInt(currentSection .index) * screenHeight) - 100){
+            let temp = parseInt(currentSection.index)-parseInt(1);
+            targetProxy.index = temp < 0 ? parseInt(0): targetProxy.index-parseInt(1);
 
             // rekStations.forEach(function(el){
             //   el.classList.remove('active');
@@ -288,9 +294,9 @@ setTimeout(function(){
           }
         }
         else if(scrollAmount > cachedScrollAmount){
-          if(scrollAmount > (currentSection .index* screenHeight ) + 100){
-            let temp = currentSection.index+1;
-            targetProxy.index = temp > sections.length-1 ? sections.length-1: targetProxy.index+1;
+          if(scrollAmount > (parseInt(currentSection .index)* screenHeight ) + 100){
+            let temp = parseInt(currentSection.index)+parseInt(1);
+            targetProxy.index = temp > sections.length-1 ? sections.length-parseInt(1): targetProxy.index+parseInt(1);
 
             // rekStations.forEach(function(el){
             //   el.classList.remove('active');
@@ -299,8 +305,9 @@ setTimeout(function(){
           }
         }
     }
-    cachedScrollAmount = scrollAmount;
   
+    cachedScrollAmount = scrollAmount;
+
     if(window.innerWidth > 1200){
       if (scrollAmount > 50) {
         mobileMenuButton.classList.remove("removeMe");
@@ -320,23 +327,16 @@ setTimeout(function(){
     }
   });
 
-  // const headerLinks = document.querySelectorAll('.rek-link');
+  const headerLinks = document.querySelectorAll('.rek-link');
 
-  // headerLinks.forEach(function(el){
-  //   el.addEventListener('click', function(event){
-  //     event.preventDefault();
-  //     let scrollTarget =  event.target.getAttribute('scroll-target');
-  //     targetProxy.index = scrollTarget;
-  //     autoScroll = false;
-  //     let autoScrollInterval = setInterval(function(){
-  //       if(window.scrollY == scrollTarget * screenHeight ){
-  //         autoScroll = true;
-  //         clearInterval(autoScrollInterval);
-  //       }
-  //     },150);
-  //   })
-  // });
-}, 500);
+  headerLinks.forEach(function(el){
+    el.addEventListener('click', function(event){
+      event.preventDefault();
+      let scrollTarget =  event.target.getAttribute('scroll-target');
+      targetProxy.index = parseInt(scrollTarget);
+    })
+  });
+}, 1000);
 
 
 

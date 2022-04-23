@@ -1,0 +1,26 @@
+<html>
+  <head></head>
+  <body style="overflow: hidden;">
+    <button onclick="bak()">
+deneme
+    </button>
+    <div style="background-color:red; height: 400px; width:400px; margin-bottom: 30px;"></div>
+    <div style="background-color:blue; height: 400px; width:400px; margin-bottom: 30px;"></div>
+    <div style="background-color:green; height: 400px; width:400px; margin-bottom: 30px;"></div>
+    <div style="background-color:yellow; height: 400px; width:400px; margin-bottom: 30px;"></div>
+    <div style="background-color:purple; height: 400px; width:400px; margin-bottom: 30px;"></div>
+
+    <script>
+      function bak(){
+        window.scrollTo({top:600,
+        left: 0,
+        behavior: 'smooth'
+      })
+      }
+
+      window.addEventListener('scroll',function(){
+        console.log('anan');
+      });
+    </script>
+  </body>
+</html>
