@@ -5,17 +5,19 @@ import 'bootstrap';
 import AOS from 'aos';
 import {slick} from './../node_modules/slick-carousel/slick/slick.min.js';
 import scrollissimo from 'scrollissimo';
+import smoothscroll from 'smoothscroll-polyfill';
+
+smoothscroll.polyfill();
 AOS.init();
 const screenHeight = window.innerHeight;
 const sections = document.querySelectorAll('section');
-const car = document.querySelector('.rek-car');
+// const car = document.querySelector('.rek-car');
 //242 ve 259 uda açmayı unutma
 // for(let i=0; i<sections.length; i++){
 //   document.querySelector('.rek-vertical-bar').innerHTML += '<div class="rek-station"></div>';
 // }
 // const rekStations = document.querySelectorAll('.rek-station');
 const rekStations = document.querySelectorAll('.rek-sidebar-station');
-console.log(rekStations);
 let cachedScrollAmount = 0 ;
 let autoScroll = true;
 let sidebarPoint = document.querySelector('.rek-sidebar-point');
@@ -25,12 +27,11 @@ sidebarPoint.style.top = rekStations[0].getBoundingClientRect().top + rekStation
 let targetProxy = new Proxy(currentSection, {
   set: function (target, key, value) {
       window.scrollTo({
-        top: value * screenHeight - 50,
+        top: value * screenHeight -100 ,
         left: 0,
         behavior: 'smooth'
       });
-      cachedScrollAmount = value * screenHeight;
-      console.log(value);
+      cachedScrollAmount = value * screenHeight -100 ;
       sidebarPoint.style.top = rekStations[value].getBoundingClientRect().top + rekStations[value].getBoundingClientRect().height/2 + 'px';
       target[key] = value;
       return true;
@@ -46,31 +47,30 @@ $(document).ready(function(){
   window.scrollTo({
     top: 0,
     left: 0,
-    behavior: 'smooth'
   });
 
-  let radius = 8;
-  TweenMax.staggerFromTo('.blob', 14 ,{
-  cycle: {
-  attr:function(i) {
-  var r = i*90;
-  return {
-  transform:'rotate('+r+') translate('+radius+',0.1) rotate('+(-r)+')'
-  }
-  }
-  }
-  },{
-  cycle: {
-  attr:function(i) {
-  var r = i*90+360;
-  return {
-  transform:'rotate('+r+') translate('+radius+',0.1) rotate('+(-r)+')'
-  }
-  }
-  },
-  ease:Linear.easeNone,
-  repeat:-1
-  });
+  // let radius = 8;
+  // TweenMax.staggerFromTo('.blob', 14 ,{
+  // cycle: {
+  // attr:function(i) {
+  // var r = i*90;
+  // return {
+  // transform:'rotate('+r+') translate('+radius+',0.1) rotate('+(-r)+')'
+  // }
+  // }
+  // }
+  // },{
+  // cycle: {
+  // attr:function(i) {
+  // var r = i*90+360;
+  // return {
+  // transform:'rotate('+r+') translate('+radius+',0.1) rotate('+(-r)+')'
+  // }
+  // }
+  // },
+  // ease:Linear.easeNone,
+  // repeat:-1
+  // });
 
 
 
@@ -82,12 +82,22 @@ $(document).ready(function(){
   let videoHoleheight = parseFloat($(videoHole).css('width')) / 1.8;
   $(videoHole).css('height', videoHoleheight + 'px' )
 
-  setTimeout(scrollanim(), 800);
+  setTimeout(
+    function(){
+      if(window.innerWidth > 992){
+        scrollanim();
+      }
+    }, 
+    800);
   textAnim();
   setTimeout(function(){
+    if(window.innerWidth > 992){
       $(window).scroll(function(){
-        scrollissimo.knock();
+        
+          scrollissimo.knock();
+      
       })
+    }
   },1000);
 });
 
@@ -142,10 +152,8 @@ function scrollanim(){
     const rekSection2 = document.getElementById('rekSection2');
     const rekSection2Content = document.getElementById('rekSection2Content');
     const rekSection2TopY = getCoords(rekSection2).top;
-    console.log("rekSection2TopY:",rekSection2TopY);
 
     let rekSection2Duration = rekSection2Content.getBoundingClientRect().height / 4;
-    console.log("rekSection2Duration:",rekSection2Duration);
     rekSection2Content.classList.add("rek-scale-0");
     let divyTween4 = TweenLite.to(document.getElementById('rekSection2Content'), rekSection2Duration, { scale: 1});
     let divyTween5 = TweenLite.to(document.getElementById('rekSection2Content'), outDuration, { scale: 0 });
@@ -159,7 +167,13 @@ function scrollanim(){
 }
 
 function textAnim(){
-  const myTextList = ['HOŞGELDİNİZ','GEVREK\ GAMES'];
+  let myTextList
+  if(window.innerWidth < 567){
+    myTextList = ['HOŞGELDİNİZ<br>\ ','GEVREK<br>GAMES'];
+  }else{
+    myTextList = ['HOŞGELDİNİZ','GEVREK\ GAMES'];
+  }
+  
   startChangingText(myTextList, 3)
 }
 
@@ -251,6 +265,7 @@ window.onresize = function(){
 //let timer = null;
 setTimeout(function(){
   window.addEventListener("scroll",function(){
+    
     // car.classList.add('moving');
     // if(timer !== null) {
       
@@ -273,7 +288,7 @@ setTimeout(function(){
           }
         }
         else if(scrollAmount > cachedScrollAmount){
-          if(scrollAmount > (currentSection .index* screenHeight) + 100){
+          if(scrollAmount > (currentSection .index* screenHeight ) + 100){
             let temp = currentSection.index+1;
             targetProxy.index = temp > sections.length-1 ? sections.length-1: targetProxy.index+1;
 
@@ -305,25 +320,22 @@ setTimeout(function(){
     }
   });
 
-  const headerLinks = document.querySelectorAll('.rek-link');
+  // const headerLinks = document.querySelectorAll('.rek-link');
 
-  headerLinks.forEach(function(el){
-    el.addEventListener('click', function(event){
-      event.preventDefault();
-      console.log("event:",event);
-      console.log("event.target:",event.target);
-      let scrollTarget =  event.target.getAttribute('scroll-target');
-      console.log("scrollTarget:",scrollTarget);
-      targetProxy.index = scrollTarget;
-      autoScroll = false;
-      let autoScrollInterval = setInterval(function(){
-        if(window.scrollY == scrollTarget * screenHeight){
-          autoScroll = true;
-          clearInterval(autoScrollInterval);
-        }
-      },150);
-    })
-  });
+  // headerLinks.forEach(function(el){
+  //   el.addEventListener('click', function(event){
+  //     event.preventDefault();
+  //     let scrollTarget =  event.target.getAttribute('scroll-target');
+  //     targetProxy.index = scrollTarget;
+  //     autoScroll = false;
+  //     let autoScrollInterval = setInterval(function(){
+  //       if(window.scrollY == scrollTarget * screenHeight ){
+  //         autoScroll = true;
+  //         clearInterval(autoScrollInterval);
+  //       }
+  //     },150);
+  //   })
+  // });
 }, 500);
 
 

@@ -12760,6 +12760,11 @@ textarea.form-control-lg {
 .rek-section {
   padding-top: 75px;
 }
+@media screen and (max-width: 991px) {
+  .rek-section {
+    align-items: center;
+  }
+}
 
 #rekSection4::after {
   content: "";
@@ -12811,8 +12816,14 @@ textarea.form-control-lg {
 
 .rek-section-title {
   position: absolute;
-  left: 0;
-  opacity: 0;
+  top: 10%;
+}
+@media screen and (min-width: 992px) {
+  .rek-section-title {
+    left: 0;
+    opacity: 0;
+    top: 0%;
+  }
 }
 .rek-section-title::after {
   content: "";
@@ -12827,9 +12838,9 @@ textarea.form-control-lg {
 .rek-member + h6, .rek-member + .h6 {
   word-break: break-all;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 567px) {
   .rek-member + h6, .rek-member + .h6 {
-    font-size: 11px !important;
+    font-size: 15px !important;
   }
 }
 .rek-member .rek-member-detail {
@@ -12854,6 +12865,11 @@ textarea.form-control-lg {
   width: calc(100% + 3rem);
   left: -1.5rem;
   bottom: calc(100% + 20px);
+}
+@media screen and (max-width: 767px) {
+  .rek-top-line::before {
+    display: none;
+  }
 }
 .rek-top-line::after {
   position: absolute;
@@ -12920,6 +12936,11 @@ textarea.form-control-lg {
   width: 1px;
   left: 49.5%;
   top: 100%;
+}
+@media screen and (max-width: 567px) {
+  .rek-bottom-line::after {
+    height: 216px;
+  }
 }
 
 @media screen and (max-width: 767px) {

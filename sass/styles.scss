@@ -355,6 +355,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 }
 .rek-section{
   padding-top: 75px;
+  @media screen and (max-width:991px) {
+    align-items: center;
+  }
 }
 #rekSection4{
   &::after{
@@ -401,8 +404,12 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 }
 .rek-section-title{
   position: absolute;
-  left: 0;
-  opacity: 0;
+  @media screen and (min-width: 992px) {
+    left: 0;
+    opacity: 0;
+    top: 0%;
+  }
+  top: 10%;
   &::after{
     content: "";
     position: absolute;
@@ -417,8 +424,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .rek-member{
   &+h6{
     word-break: break-all;
-    @media screen and (max-width:767px) {
-      font-size: 11px !important;
+    @media screen and (max-width:567px) {
+      font-size: 15px !important;
     }
   }
   .rek-member-detail{
@@ -438,6 +445,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .rek-top-line{
   position: relative;
   &::before{
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
     position: absolute;
     content: "";
     background-color: #fff;
@@ -508,6 +518,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
     width: 1px;
     left: 49.5%;
     top: 100%;
+    @media screen and (max-width:567px) {
+      height: 216px;
+    }
   }
 }
 .rek-contact-left{

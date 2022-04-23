@@ -22,6 +22,7 @@
       <button class="rek-sidebar-station rek-link" scroll-target="2"><i scroll-target="2" class="bi bi-kanban-fill fs-1 text-white"></i></button>
       <button class="rek-sidebar-station rek-link" scroll-target="3"><i scroll-target="3" class="bi bi-people-fill fs-1 text-white"></i></button>
       <button class="rek-sidebar-station rek-link" scroll-target="4"><i scroll-target="4" class="bi bi-envelope-paper fs-1 text-white"></i></button>
+      <button class="rek-sidebar-station rek-link" scroll-target="4"><i scroll-target="5" class="bi bi-info-square fs-1 text-white"></i></button>
     </div>
   </div>
   <div class="rek-layout position-relative overflow-hidden">
@@ -47,7 +48,7 @@
         </div>
       </div>
     </div> -->
-    <div class="loading_cont position-absolute top-0 start-0 w-100 d-md-block d-none" style="height: 600px;">
+    <!-- <div class="loading_cont position-absolute top-0 start-0 w-100 d-md-block d-none" style="height: 600px;">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="loader">
         <defs>
           <filter id="goo">
@@ -72,7 +73,7 @@
         </mask>
         <rect x="0" y="0"  mask="url(#maska)" fill="url(#MyGradient)" class="w-100" height="800">
       </svg>  
-    </div>
+    </div> -->
     <header class="container-fluid position-fixed top-0 start-0 w-100 rek-z-index-2">
       <nav class="navbar navbar-light justify-content-start">
         
@@ -134,10 +135,10 @@
     </header>
     <main class="d-flex flex-column">
       <section id="rekSection0" class="container justify-content-center vh-100 rek-first-section position-relative d-flex flex-column align-items-center mt-n5">
-        <h1 id="changing" class="text-white text-center display-1">
+        <h1 style="font-size: 56px;" id="changing" class="text-white text-center display-1">
           
         </h1>
-        <h2 class="text-center">
+        <h2 class="text-center text-white opacity-75">
           SİTE TURU İÇİN SAYFAYI KAYDIRIN
         </h2>
         <a href="#rekSection1" class="rek-scroll-down position-absolute bottom-0">
@@ -147,7 +148,7 @@
       </section>
 
       <section id="rekSection1" class="rek-section vh-100 overflow-hidden d-flex justify-content-center flex-column position-relative">
-        <h1 id="rekSectionTitle1" class="rek-section-title text-white top-md-5 top-10">Güncel Projemiz</h1>
+        <h1 id="rekSectionTitle1" class="rek-section-title text-white  ">Güncel Projemiz</h1>
         <div id="rekSection1Content" class="container w-md-75 w-100">
           <iframe class="w-100 video-hole" src="https://www.youtube.com/embed/eerymX0Rqms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <!--<video class="img-fluid m-auto rek-rounded" style="object-fit: contain; max-height: 100%;" controls>
@@ -158,7 +159,7 @@
       </section>
 
       <section id="rekSection2" class="rek-section vh-100 overflow-hidden d-flex justify-content-center position-relative flex-column">
-        <h1 id="rekSectionTitle2" class="rek-section-title text-white top-md-5 top-10">Projelerimiz</h1>
+        <h1 id="rekSectionTitle2" class="rek-section-title text-white  ">Projelerimiz</h1>
         <div id="rekSection2Content" class="w-md-75 w-100 container position-relative">
             <div class="slider-for text-white mx-auto rek-rounded border-bottom border-2 overflow-hidden">
               <div>
@@ -169,7 +170,7 @@
                       <h2 class="lh-base rek-text-shadow border-end me-3 pe-3"><span class="text-nowrap">PC OYUN</span><br>PROJESİ</h2>
                       <div class="d-flex flex-column justify-content-center">
                         <p>Korku temalı çevrimiçi eşili oyun pojemiz "Hole" üzerindeki çalışmalarımız devam ediyor.</p>
-                        <a class="btn btn-primary me-auto"><span class="float-start">Detay</span><span class="d-md-flex float-start d-none">ları görmek için tıklayınız</span></a>
+                        <a class="btn btn-primary me-auto fs-4 px-sm-2 px-5"><span class="float-start">Detay</span><span class="d-md-flex float-start d-none">ları görmek için tıklayınız</span></a>
                       </div>
                     </div>
                   </div>
@@ -183,7 +184,7 @@
                       <h2 class="lh-base rek-text-shadow border-end me-3 pe-3"><span class="text-nowrap">MOBİL OYUN</span><br>PROJESİ</h2>
                       <div class="d-flex flex-column justify-content-center">
                         <p>Çerezlik(Hyper casual) tarzdaki mobil oyunumuz "Snow Thrower" üzerinde çalışmalarımız devam ediyor.</p>
-                        <a class="btn btn-primary me-auto"><span class="float-start">Detay</span><span class="d-md-flex float-start d-none">ları görmek için tıklayınız</span></a>
+                        <a class="btn btn-primary me-auto fs-4 px-sm-2 px-5"><span class="float-start">Detay</span><span class="d-md-flex float-start d-none">ları görmek için tıklayınız</span></a>
                       </div>
                     </div>
                   </div>
@@ -205,92 +206,142 @@
         </div>
       </section>
 
-      <section id="rekSection3"  class="rek-section vh-100 overflow-hidden d-flex justify-content-center position-relative flex-column">
-        <h1 id="rekSectionTitle3" class="rek-section-title text-white top-md-5 top-10">Ekibimiz</h1>
-        <div class="container">
+      <section id="rekSection3"  class="rek-section vh-100 overflow-hidden d-flex justify-content-sm-center position-relative flex-column">
+        <h1 id="rekSectionTitle3" class="rek-section-title text-white  ">Ekibimiz</h1>
+        <div class="container mt-sm-0 mt-auto">
           <div class="row d-flex justify-content-center">
-            <div class="col-md-2 col-3 p-0 mb-3 rek-bottom-line">
+            <div class="col-sm-2 col-5 p-0 mb-3 rek-bottom-line">
               <div data-aos-offset="200" data-aos-delay="300" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" class="rek-member rek-pt-100 rounded-circle overflow-hidden border-1 border-white border position-relative">
                 <div class="position-absolute d-flex h-100 w-100 top-0 start-0">
-                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 rek-member-image m-auto">
+                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 -sm-image m-auto">
                 </div>
-                <p class="rek-member-detail small fw-lighter position-absolute top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
+                <p class="rek-member-detail small fw-lighter position-sm-absolute position-fixed  top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
                   1998'de Konya da doğdum. Elektrik Elektronik Mühendisiyim. Oyun geliştirme dışında yapay zeka ile ilgileniyorum.
                 </p>
               </div>
               <h6 class="text-white text-center">Furkan <br><i class="fw-lighter">Takım Lideri/Geliştirici</i></h6>
             </div>
           </div>
-          <div class="row d-flex justify-content-center gap-md-5 gap-1">
-            <div class="col-md-2 col-3 p-0 mb-5 rek-top-right">
+          <div class="row d-flex justify-content-center gap-5">
+            <div class="col-sm-2 col-5 p-0 mb-sm-2 mb-0 rek-top-right">
               <div data-aos-offset="100" data-aos-delay="300" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" class="rek-member rek-pt-100 rounded-circle overflow-hidden border-1 border-white border position-relative">
                 <div class="position-absolute d-flex h-100 w-100 top-0 start-0">
-                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 rek-member-image m-auto">
+                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 -sm-image m-auto">
                 </div>
-                <p class="rek-member-detail small fw-lighter position-absolute top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
+                <p class="rek-member-detail small fw-lighter position-sm-absolute position-fixed  top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
                   1998'de Konya da doğdum. Elektrik Elektronik Mühendisiyim. Oyun geliştirme dışında yapay zeka ile ilgileniyorum.
                 </p>
               </div>
               <h6 class="text-white text-center">Enes <br><i class="fw-lighter">Komutan</i></h6>
             </div>
-            <div class="col-md-2 col-3 p-0 mb-5 rek-top-line">
+            <div class="col-sm-2 col-5 p-0 mb-sm-2 mb-0 rek-top-line d-sm-flex flex-column d-none">
               <div data-aos-offset="100" data-aos-delay="500" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" class="rek-member rek-pt-100 rounded-circle overflow-hidden border-1 border-white border  position-relative">
                 <div class="position-absolute d-flex h-100 w-100 top-0 start-0">
-                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 rek-member-image m-auto">
+                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 -sm-image m-auto">
                 </div>
-                <p class="rek-member-detail small fw-lighter position-absolute top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
+                <p class="rek-member-detail small fw-lighter position-sm-absolute position-fixed  top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
                   1998'de Konya da doğdum. Elektrik Elektronik Mühendisiyim. Oyun geliştirme dışında yapay zeka ile ilgileniyorum.
                 </p>
               </div>
               <h6 class="text-white text-center">Ali Emre <br><i class="fw-lighter">Modelleme/Senaryo Yazarı</i></h6>
             </div>
-            <div class="col-md-2 col-3 p-0 mb-5 rek-top-left">
+            <div class="col-sm-2 col-5 p-0 mb-sm-2 mb-0 rek-top-left">
               <div data-aos-offset="100" data-aos-delay="700" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" class="rek-member rek-pt-100 rounded-circle overflow-hidden border-1 border-white border position-relative">
                 <div class="position-absolute d-flex h-100 w-100 top-0 start-0">
-                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 rek-member-image m-auto">
+                  <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 -sm-image m-auto">
                 </div>
-                <p class="rek-member-detail small fw-lighter position-absolute top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
+                <p class="rek-member-detail small fw-lighter position-sm-absolute position-fixed  top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
                   1998'de Konya da doğdum. Elektrik Elektronik Mühendisiyim. Oyun geliştirme dışında yapay zeka ile ilgileniyorum.
                 </p>
               </div>
               <h6 class="text-white text-center">Mert <br><i class="fw-lighter">Ses Tasarımcısı</i></h6>
             </div>
           </div>
+          <div class="row d-sm-none d-flex justify-content-center">
+            <div class="col-sm-2 col-5 p-0 mb-sm-2 mb-0 rek-top-line">
+            <div data-aos-offset="100" data-aos-delay="500" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" class="rek-member rek-pt-100 rounded-circle overflow-hidden border-1 border-white border position-relative aos-init aos-animate">
+              <div class="position-absolute d-flex h-100 w-100 top-0 start-0">
+                <img src="/assets/images/enes.jpeg" class="position-absolute top-0 start-0  h-100 w-100 -sm-image m-auto">
+              </div>
+              <p class="rek-member-detail small fw-lighter position-sm-absolute position-fixed  top-100 start-0 text-white h-100 w-100 overflow-auto text-center px-3">
+                1998'de Konya da doğdum. Elektrik Elektronik Mühendisiyim. Oyun geliştirme dışında yapay zeka ile ilgileniyorum.
+              </p>
+            </div>
+            <h6 class="text-white text-center">Ali Emre <br><i class="fw-lighter">Modelleme/Senaryo Yazarı</i></h6>
+          </div>
+        </div>
         </div>
       </section> 
       
       <section id="rekSection4"  class="rek-section vh-100 overflow-hidden d-flex justify-content-center position-relative overflow-hidden flex-column">
-        <h1 id="rekSectionTitle4" class="rek-section-title text-white top-md-5 top-10">İletişim</h1>
+        
+        <h1 id="rekSectionTitle4" class="rek-section-title text-white  ">İletişim</h1>
         <div class="container">
           <div class="row">
-            <div class="col-12 mb-5 py-md-4 pe-md-4">
-              <div class="rek-contact-left border-end border-white border-top d-flex justify-content-center flex-column rek-rounded h-100 p-4">
-                <iframe height="1000" class="w-100 rek-rounded overflow-hidden" src="https://docs.google.com/forms/d/e/1FAIpQLSenZWuXIA3UVOZJSdwtWVaC5GblNERdXf1NwISMKrEDGmkOeg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
+            <div class="col-md-6 col-12 mb-5 py-md-4 pe-md-4">
+              <div class="rek-contact-left bg-white rek-rounded border-end border-white border-top d-flex justify-content-center flex-column rek-rounded h-100 p-4">
+
+                <h5 class="text-dark text-md-end text-md-center d-flex justify-content-md-end lh-base align-items-md-end pe-3">
+                  Aşağıdaki iletişim kanallarımızı<br> kullanarak bize ulaşabilirsiniz
+                </h5>
+                
+                  <ul class="list-unstyled d-flex flex-column text-md-end text-md-center justify-content-md-end align-items-md-end m-0 pe-md-4">
+                    <li><a href="mailto:info@gevrekgames.com" class="w-100 text-dark d-flex justify-content-md-between align-items-center">info@gevrekgames.com <i class="bi bi-envelope text-dark fs-3 ms-2"></i></a></li>
+                    <li><a href="tel:90 554 661 31 90" class="w-100 text-dark d-flex justify-content-md-between align-items-center">+90 554 661 31 90 <i class="bi bi-telephone text-dark fs-3 ms-2"></i></a></li>
+                    <li><a href="https://discord.gg/AS9Tffc9" target="_blank" class="w-100 text-dark d-flex justify-content-md-between align-items-center">discord.gg/AS9Tffc9 <i class="bi bi-discord text-dark fs-3 ms-2"></i></a></li>
+                    <li><a href="#" class="w-100 text-dark d-flex justify-content-md-between align-items-center">Instagram<i class="bi bi-instagram text-dark fs-3 ms-2"></i></a></li>
+                  </ul>
+                  
+              </div>
+            </div>
+            <div class="col-md-6 col-12 py-md-4 mb-5 px-sm-5">
+              <div class="p-4">
+                <h1 class="text-white">İetişim Formumuzu Doldurarak Bize Ulaşın!</h1>
+                <button type="button" class="btn btn-primary py-3 px-5 rek-rounded" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span class="fw-bold fs-4">İletişim formu</span>
+                </button>
               </div>
             </div>
           </div>
-        </div>
-      </section> 
-    </main>
 
-    <footer class="mb-2 mt-5">
-      <div class="container bg-white rek-rounded py-5">
-        <div class="row">
-          <div class="col-12 d-flex flex-wrap align-items-center">
-            <span class="text-dark order-xl-1 order-2 mt-xl-0 mt-4">gevrekgames © 2022</span>
-            <ul class="list-unstyled d-flex flex-wrap gap-3 m-0 p-0 ms-md-auto order-xl-2 order-1">
-              <li><a href="mailto:info@gevrekgames.com" class="text-dark d-flex align-items-center"><i class="bi bi-envelope fs-3 me-2"></i> <span class="fs-5">info@gevrekgames.com</span></a></li>
-              <li><a href="#" class="text-dark d-flex align-items-center"><i class="bi bi-instagram fs-3 me-2"></i> <span class="fs-5">Instagram</span></a></li>
-            </ul>
-          </div>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">İletişim Formu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <iframe height="1200" class="w-100 rek-rounded overflow-hidden" src="https://docs.google.com/forms/d/e/1FAIpQLSenZWuXIA3UVOZJSdwtWVaC5GblNERdXf1NwISMKrEDGmkOeg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
-      </div>
-    </footer>
+        <footer class="w-100 mb-2 mt-sm-auto">
+          <div class="container bg-white rek-rounded py-sm-5 py-3">
+            <div class="row">
+              <div class="col-12 d-flex flex-wrap align-items-center">
+                <span class="text-dark order-xl-1 order-2 mt-xl-0 mt-sm-4">gevrekgames © 2022</span>
+                <!-- <ul class="list-unstyled d-flex flex-wrap gap-3 m-0 p-0 ms-md-auto order-xl-2 order-1">
+                  <li><a href="mailto:info@gevrekgames.com" class="text-dark d-flex align-items-center"><i class="bi bi-envelope fs-3 me-2"></i> <span class="fs-5">info@gevrekgames.com</span></a></li>
+                  <li><a href="#" class="text-dark d-flex align-items-center"><i class="bi bi-instagram fs-3 me-2"></i> <span class="fs-5">Instagram</span></a></li>
+                </ul> -->
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>     
+    </main>
   </div>
 
   <script src="/assets/Sequential-Text-Animation-autoChange/autochange_text.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
   <script src="/assets/js/scripts.js"></script>
+  
 
 </body>
 </html>
